@@ -11,7 +11,7 @@ import UIKit
 class tableViewController: UITableViewController ,UIGestureRecognizerDelegate{
     
     @IBOutlet var table : UITableView! = UITableView()
-    var saveDate: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    var saveData: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     var items:[String] = []
     let cellID = "cell"
@@ -39,10 +39,10 @@ class tableViewController: UITableViewController ,UIGestureRecognizerDelegate{
         
         
         //前回の保存内容があるかどうかを判定
-        if((saveDate.objectForKey("NAME")) != nil){
+        if((saveData.objectForKey("NAME")) != nil){
             
             //objectsを配列として確定させ、前回の保存内容を格納
-            let objects = saveDate.objectForKey("NAME") as? NSArray
+            let objects = saveData.objectForKey("NAME") as? NSArray
             
             //各名前を格納するための変数を宣言
             var nameString:AnyObject
@@ -126,8 +126,8 @@ class tableViewController: UITableViewController ,UIGestureRecognizerDelegate{
                         self.items.append("")
                         
                         
-                        self.saveDate.setObject(self.items, forKey: "NAME")
-                        self.saveDate.synchronize()
+                        self.saveData.setObject(self.items, forKey: "NAME")
+                        self.saveData.synchronize()
                         
                         
                         
@@ -170,8 +170,8 @@ class tableViewController: UITableViewController ,UIGestureRecognizerDelegate{
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
-            self.saveDate.setObject(self.items, forKey: "NAME")
-            self.saveDate.synchronize()
+            self.saveData.setObject(self.items, forKey: "NAME")
+            self.saveData.synchronize()
             
             self.table.reloadData()
             

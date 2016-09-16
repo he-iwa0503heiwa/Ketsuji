@@ -11,7 +11,9 @@ import UIKit
 class countViewController: UIViewController {
     @IBOutlet var label:UILabel!
     @IBOutlet var label1:UILabel!
-    var number:Int = 0
+    var kessekinumber:Int = 0
+    var tikokunumber:Int = 0
+    var saveData : NSUserDefaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +26,23 @@ class countViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func p(){
-        number = number + 1
-        label.text = String(number)
+        kessekinumber = kessekinumber + 1
+        label.text = String(kessekinumber)
+    }
+    @IBAction func m(){
+        kessekinumber = kessekinumber - 1
+        label.text = String(kessekinumber)
     }
     @IBAction func pl(){
-        number = number + 1
-        label1.text = String(number)
+        tikokunumber = tikokunumber + 1
+        label1.text = String(tikokunumber)
+    }
+    @IBAction func ma(){
+        tikokunumber = tikokunumber - 1
+        label1.text = String(tikokunumber)
+    }
+    @IBAction func saveMemo() {
+        
     }
 
     
