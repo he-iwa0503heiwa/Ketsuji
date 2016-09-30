@@ -109,14 +109,14 @@
 			children = (
 				AC3C45641D1D4BB70006F59C /* AppDelegate.swift */,
 				AC3C45661D1D4BB70006F59C /* ViewController.swift */,
+				ACECDA751D4C6BF800E9E5DF /* tableViewController.swift */,
+				AC6ABF801D799A3900AC0ED7 /* countViewController.swift */,
 				AC3C45681D1D4BB70006F59C /* Main.storyboard */,
 				AC6ABF901D8AF98E00AC0ED7 /* mainas.png */,
 				AC6ABF8A1D8AF79400AC0ED7 /* plus.png */,
 				AC3C456B1D1D4BB70006F59C /* Assets.xcassets */,
-				AC6ABF801D799A3900AC0ED7 /* countViewController.swift */,
 				AC3C456D1D1D4BB70006F59C /* LaunchScreen.storyboard */,
 				AC3C45701D1D4BB70006F59C /* Info.plist */,
-				ACECDA751D4C6BF800E9E5DF /* tableViewController.swift */,
 				AC826C1B1D4DE64D00A06A7E /* InputViewController.swift */,
 			);
 			path = check;

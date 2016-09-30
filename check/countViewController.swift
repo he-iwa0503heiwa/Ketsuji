@@ -9,16 +9,34 @@
 import UIKit
 
 class countViewController: UIViewController {
-    @IBOutlet var label:UILabel!
-    @IBOutlet var label1:UILabel!
-    var kessekinumber:Int = 0
-    var tikokunumber:Int = 0
+    @IBOutlet var kessekiLabel:UILabel!
+    @IBOutlet var tikokuLabel:UILabel!
+    @IBOutlet var kamokuLabel:UILabel!
+    var kessekiNumber:Int = 0
+    var tikokuNumber:Int = 0
     var saveData : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    var ketujiDate : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    var subjectNameArray:[AnyObject] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        kessekiNumber = ketujiDate.objectForKey("KESSEKI") as! Int
+        tikokuNumber = ketujiDate.objectForKey("TIKOKU") as! Int
+        
+        kamokuLabel.text = String(kessekiNumber)
+        kamokuLabel.text = String(tikokuNumber)
+
 
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        subjectNameArray = saveData.arrayForKey("NAME")!
+        print(subjectNameArray[0])
+        kamokuLabel.text = subjectNameArray[0] as! String
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,35 +44,29 @@ class countViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func p(){
-        kessekinumber = kessekinumber + 1
-        label.text = String(kessekinumber)
+        kessekiNumber = kessekiNumber + 1
+        kessekiLabel.text = String(kessekiNumber)
     }
     @IBAction func m(){
-        kessekinumber = kessekinumber - 1
-        label.text = String(kessekinumber)
+        kessekiNumber = kessekiNumber - 1
+        kessekiLabel.text = String(kessekiNumber)
     }
     @IBAction func pl(){
-        tikokunumber = tikokunumber + 1
-        label1.text = String(tikokunumber)
+        tikokuNumber = tikokuNumber + 1
+        tikokuLabel.text = String(tikokuNumber)
     }
     @IBAction func ma(){
-        tikokunumber = tikokunumber - 1
-        label1.text = String(tikokunumber)
+        tikokuNumber = tikokuNumber - 1
+        tikokuLabel.text = String(tikokuNumber)
     }
-    @IBAction func saveMemo() {
-        
+    
+    override func viewWillDisappear(animated: Bool) {
+        ketujiDate.setObject(kessekiNumber, forKey: "KESSEKI")
+        ketujiDate.setObject(tikokuNumber, forKey: "TIKOKU")
+        ketujiDate.synchronize()
     }
 
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

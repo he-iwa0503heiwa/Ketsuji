@@ -198,6 +198,7 @@ class tableViewController: UITableViewController ,UIGestureRecognizerDelegate{
             
         }else {
             performSegueWithIdentifier("toInputView", sender: nil)
+            
         }
         
         
